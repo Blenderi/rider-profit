@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Calculate your real delivery earnings after fuel and expenses."
+    >
+
+    <title>Rider Profit — Real Earnings Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+
+        <a href="#" class="logo">
+            Rider<span>Profit</span>
+        </a>
+
+        <nav class="nav">
+            <a href="#calculator">Calculator</a>
+            <a href="#how-it-works">How it works</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+<section class="calculator-section" id="calculator">
+
+    <div class="container">
+
+        <div class="calculator-intro">
+
+            <p class="eyebrow">
+                RIDER PROFIT
+            </p>
+
+            <h1>
+                Calculate your<br>
+                <span>real earnings.</span>
+            </h1>
+
+            <p>
+                Enter your shift details and we'll
+                calculate what you actually made.
+            </p>
+
+        </div>
+
+
+        <div class="calculator-card">
+
+            <!-- SHIFT -->
+
+            <div class="card-section-title">
+
+                <span>📊</span>
+
+                <div>
+                    <strong>Your shift</strong>
+
+                    <small>
+                        Just enter what you know.
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="earnings">
+                    Total earnings
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-prefix">
+                        ₹
+                    </span>
+
+                    <input
+                        type="number"
+                        id="earnings"
+                        placeholder="e.g. 850"
+                        min="0"
+                        step="0.01"
+                        inputmode="decimal"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="input-row">
+
+                <div class="input-group">
+
+                    <label for="orders">
+                        Orders completed
+                    </label>
+
+                    <input
+                        type="number"
+                        id="orders"
+                        placeholder="e.g. 18"
+                        min="0"
+                        step="1"
+                        inputmode="numeric"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="hours">
+                        Time worked
+                        <span>hours</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="hours"
+                        placeholder="e.g. 8"
+                        min="0"
+                        step="0.5"
+                        inputmode="decimal"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="distance">
+                    Distance travelled
+                    <span>km</span>
+                </label>
+
+                <input
+                    type="number"
+                    id="distance"
+                    placeholder="e.g. 85"
+                    min="0"
+                    step="0.1"
+                    inputmode="decimal"
+                >
+
+            </div>
+
+
+            <div class="section-divider"></div>
+
+
+            <!-- BIKE -->
+
+            <div class="card-section-title">
+
+                <span>🛵</span>
+
+                <div>
+
+                    <strong>Your bike</strong>
+
+                    <small>
+                        Used to calculate fuel cost.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-row">
+
+                <div class="input-group">
+
+                    <label for="petrol-price">
+                        Petrol price
+                        <span>₹/L</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="petrol-price"
+                        placeholder="e.g. 105"
+                        min="0"
+                        step="0.01"
+                        inputmode="decimal"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="mileage">
+                        Bike mileage
+                        <span>km/L</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="mileage"
+                        placeholder="e.g. 45"
+                        min="0.1"
+                        step="0.1"
+                        inputmode="decimal"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- SAVED MESSAGE -->
+
+            <div
+                class="saved-bike-message"
+                id="saved-bike-message"
+                hidden
+            >
+
+                <span class="saved-icon">
+                    ✓
+                </span>
+
+                <div>
+
+                    <strong>
+                        Using your saved bike settings
+                    </strong>
+
+                    <small id="saved-bike-summary">
+                        ₹105/L · 45 km/L
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESET -->
+
+            <button
+                type="button"
+                id="reset-bike-settings"
+                style="
+                    display:none;
+                    margin:-8px 0 18px;
+                    padding:0;
+                    border:none;
+                    background:none;
+                    color:#6d766f;
+                    font-size:11px;
+                    text-decoration:underline;
+                    cursor:pointer;
+                "
+            >
+                Reset saved bike settings
+            </button>
+
+
+            <!-- OTHER EXPENSES -->
+
+            <button
+                class="advanced-toggle"
+                id="advanced-toggle"
+                type="button"
+                aria-expanded="false"
+            >
+
+                <span>
+
+                    <strong>
+                        Other expenses
+                        <em>Optional</em>
+                    </strong>
+
+                    <small>
+                        Maintenance, platform fees & more
+                    </small>
+
+                </span>
+
+                <span
+                    class="advanced-icon"
+                    id="advanced-icon"
+                >
+                    +
+                </span>
+
+            </button>
+
+
+            <div
+                class="advanced-panel"
+                id="advanced-panel"
+                hidden
+            >
+
+                <!-- MAINTENANCE -->
+
+                <div class="input-group">
+
+                    <label for="maintenance">
+
+                        Maintenance cost
+
+                        <span>
+                            ₹/km
+                        </span>
+
+                    </label>
+
+                    <p class="input-help">
+                        Optional. Add your estimated
+                        maintenance cost per kilometre.
+                    </p>
+
+                    <input
+                        type="number"
+                        id="maintenance"
+                        placeholder="e.g. 1"
+                        min="0"
+                        step="0.1"
+                        inputmode="decimal"
+                    >
+
+                </div>
+
+
+                <!-- PLATFORM -->
+
+                <div class="input-group">
+
+                    <label>
+
+                        Platform fee / deduction
+
+                        <span>
+                            Optional
+                        </span>
+
+                    </label>
+
+                    <p class="input-help">
+                        Only add this if your displayed
+                        earnings don't already account for it.
+                    </p>
+
+
+                    <div class="fee-input-row">
+
+                        <div class="fee-switch">
+
+                            <button
+                                type="button"
+                                class="fee-type active"
+                                id="fee-fixed"
+                            >
+                                ₹
+                            </button>
+
+                            <button
+                                type="button"
+                                class="fee-type"
+                                id="fee-percent"
+                            >
+                                %
+                            </button>
+
+                        </div>
+
+
+                        <input
+                            type="number"
+                            id="platform-fees"
+                            placeholder="e.g. 50"
+                            min="0"
+                            step="0.01"
+                            inputmode="decimal"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- OTHER -->
+
+                <div class="input-group">
+
+                    <label for="other-expenses">
+
+                        Other expenses
+
+                        <span>₹</span>
+
+                    </label>
+
+                    <p class="input-help">
+                        Parking, food, tolls or other
+                        shift-related costs.
+                    </p>
+
+                    <input
+                        type="number"
+                        id="other-expenses"
+                        placeholder="e.g. 50"
+                        min="0"
+                        step="0.01"
+                        inputmode="decimal"
+                    >
+
+                </div>
+
+
+                <div class="save-settings">
+
+                    <span>✓</span>
+
+                    Saved on this device
+
+                </div>
+
+            </div>
+
+
+            <!-- CALCULATE -->
+
+            <button
+                class="calculate-button"
+                id="calculate-button"
+                type="button"
+            >
+                Calculate my real profit
+            </button>
+
+
+            <p
+                class="form-message"
+                id="form-message"
+                role="alert"
+            ></p>
+
+        </div>
+
+
+        <!-- RESULTS -->
+
+        <div
+            class="results-card"
+            id="results"
+        >
+
+            <div class="result-main">
+
+                <p class="result-label">
+                    REAL PROFIT
+                </p>
+
+                <h2 id="net-profit">
+                    ₹0
+                </h2>
+
+                <p
+                    class="result-subtext"
+                    id="result-subtext"
+                >
+                    Your result will appear here.
+                </p>
+
+            </div>
+
+
+            <div class="result-grid">
+
+                <div class="result-item">
+
+                    <span>
+                        Fuel cost
+                    </span>
+
+                    <strong id="fuel-cost">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Avg. per hour
+                    </span>
+
+                    <strong id="per-hour">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Avg. per order
+                    </span>
+
+                    <strong id="per-order">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Avg. per km
+                    </span>
+
+                    <strong id="per-km">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Maintenance
+                    </span>
+
+                    <strong id="maintenance-cost">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Platform fee
+                    </span>
+
+                    <strong id="platform-fee-result">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Other expenses
+                    </span>
+
+                    <strong id="other-expenses-result">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section
+    class="info-section"
+    id="how-it-works"
+>
+
+    <div class="container">
+
+        <p class="eyebrow">
+            HOW IT WORKS
+        </p>
+
+        <h2>
+            Simple numbers.<br>
+            More useful results.
+        </h2>
+
+
+        <div class="info-grid">
+
+            <div class="info-card">
+
+                <span>01</span>
+
+                <h3>
+                    Enter your shift
+                </h3>
+
+                <p>
+                    Add your earnings, orders,
+                    distance and working time.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <span>02</span>
+
+                <h3>
+                    Add your bike
+                </h3>
+
+                <p>
+                    Petrol price and mileage help
+                    us estimate your fuel cost.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <span>03</span>
+
+                <h3>
+                    See your real profit
+                </h3>
+
+                <p>
+                    See what you actually made
+                    after your riding costs.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-logo">
+            Rider<span>Profit</span>
+        </div>
+
+        <p>
+            A simple tool for understanding
+            your real delivery earnings.
+        </p>
+
+        <p class="copyright">
+            © 2026 Rider Profit
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
