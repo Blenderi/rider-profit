@@ -1353,3 +1353,111 @@ input:focus {
     }
 
 }
+
+/* =========================
+   SEO CONTENT
+========================= */
+
+.seo-section {
+
+    padding:
+        70px 0;
+
+    background:
+        #f7f8f5;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.seo-section .container {
+
+    max-width:
+        760px;
+
+}
+
+
+.seo-section h2 {
+
+    margin:
+        0 0 22px;
+
+    font-size:
+        clamp(30px, 5vw, 42px);
+
+    line-height:
+        1.08;
+
+    letter-spacing:
+        -1.5px;
+
+}
+
+
+.seo-section p:not(.eyebrow) {
+
+    max-width:
+        680px;
+
+    margin:
+        0 0 16px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.7;
+
+}
+
+
+.seo-section p:last-child {
+
+    margin-bottom:
+        0;
+
+}
+
+
+/* =========================
+   SEO CONTENT — MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .seo-section {
+
+        padding:
+            55px 0;
+
+    }
+
+
+    .seo-section h2 {
+
+        font-size:
+            30px;
+
+        letter-spacing:
+            -1px;
+
+    }
+
+
+    .seo-section p:not(.eyebrow) {
+
+        font-size:
+            13px;
+
+        line-height:
+            1.65;
+
+    }
+
+}
