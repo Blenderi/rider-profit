@@ -144,7 +144,8 @@ a {
 
     font-weight: 900;
 
-    letter-spacing: -0.7px;
+    /* FIXED: prevents "RiderProfit" from looking stretched/squeezed */
+    letter-spacing: normal;
 
 }
 
@@ -220,7 +221,8 @@ a {
 
     line-height: 1.04;
 
-    letter-spacing: -2px;
+    /* FIXED: normal spacing for the main heading */
+    letter-spacing: normal;
 
 }
 
@@ -950,7 +952,8 @@ input:focus {
 
     line-height: 1;
 
-    letter-spacing: -2px;
+    /* FIXED: result numbers should not look cramped on mobile */
+    letter-spacing: normal;
 
 }
 
@@ -1228,7 +1231,8 @@ input:focus {
 
         font-size: 38px;
 
-        letter-spacing: -1.5px;
+        /* FIXED: remove aggressive mobile letter spacing */
+        letter-spacing: normal;
 
     }
 
@@ -1288,6 +1292,14 @@ input:focus {
             22px;
 
         border-radius: 20px;
+
+    }
+
+
+    .result-main h2 {
+
+        /* FIXED: ensures the mobile profit number is readable */
+        letter-spacing: normal;
 
     }
 
